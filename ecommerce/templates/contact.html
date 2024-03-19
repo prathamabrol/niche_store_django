@@ -1,0 +1,92 @@
+{% extends "base.html" %} 
+
+{% block title %} 
+Contact Us 
+{% endblock title %} 
+
+
+{% block intro %} 
+      <h2>Have a question, comment, or feedback? We'd love to hear from you! Get in touch with our team </h2>
+      <h2>You can fill out the form below to send us a message. We'll get back to you as soon as possible.</h2>
+      <a href="#contact" class="btn-get-started scrollto">Contact Us</a>
+{% endblock intro %}
+
+{% block body %} 
+
+<div id="contact">
+
+  
+  <h1 class="text-center py-3 ">Contact Us</h1>
+  
+  <div class="container mt-2">
+
+    
+    
+    <div class="row">
+      
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        
+        <form action="" method="post">
+          {% csrf_token %}
+          
+          <div class="mb-2">
+            <label for="name" class="form-label">Full Name</label>
+            <input
+            type="text"
+            class="form-control"
+            name="name"
+            id="name"
+            required
+            />
+          </div>
+          
+          <div class="mb-2">
+            <label for="email" class="form-label">Email</label>
+            <input
+            type="email"
+            class="form-control"
+            name="email"
+            id="email"
+            value="{{user.email}}"
+            required
+            />
+          </div>
+          
+          <div class="mb-2">
+          <label for="pass1" class="form-label">How can I help you?</label>
+          <textarea
+            type="text"
+            class="form-control"
+            name="desc"
+            id="desc"
+            required> </textarea>
+          </div>
+          <div class="mb-2">
+          <label for="pnumber" class="form-label">Phone Number</label>
+          <input
+            type="number"
+            class="form-control"
+            name="pnumber"
+            id="pnumber"
+            
+            required
+            />
+          </div>
+        <br>
+        <div class="mb-2 text-center">
+          <button class="btn btn-dark col-6" type="submit">Submit</button>
+        </div>
+        
+      </form>
+
+    </div>
+<div class="col-md-3"></div>
+
+
+    </div>
+    
+</div>
+</div>
+
+{% endblock body %}

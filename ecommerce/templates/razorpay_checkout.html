@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Razorpay Checkout</title>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <!-- Bootstrap CDN -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom styles */
+        .payment-card {
+            margin: 20px auto;
+            max-width: 500px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="payment-card">
+                    <h1 class="text-center mb-4">Order Summary</h1>
+                    <div class="mb-3">
+                        <p><strong>Name:</strong> {{ order.name }}</p>
+                        <p><strong>Email:</strong> {{ order.email }}</p>
+                        <p><strong>Amount:</strong> ₹{{ order.amount }}</p>
+                        <p><strong>Order ID:</strong>  {{order.oid}}</p>
+                    </div>
+
+                    <h2 class="text-center mb-4">Payment Details</h2>
+                    <div class="text-center">
+                        <button id="rzp-button" class="btn btn-primary">Pay Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var options = {
+            "key": "{{ rzp_test_R7kWkFU6ZllnWF }}",
+            "amount": "{{ payment.amount }}",
+            "currency": "INR",
+            "name": "SwiftCart",
+            "description": "Payment for Order",
+            "order_id": "{{ payment.id }}",
+            "handler": function (response){
+                // Handle payment success
+                // console.log(response);
+                window.location.href = "/payment_status?payment_id=" + response.razorpay_payment_id;
+                // Redirect or perform other actions
+            },
+            "prefill": {
+                "name": "{{ order.name }}",
+                "email": "{{ order.email }}",
+                "contact": "{{ order.phone }}"
+            }
+        };
+
+        var rzp = new Razorpay(options);
+        
+        document.getElementById('rzp-button').onclick = function(){
+            rzp.open();
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+{% extends "base.html" %} {% block title %} About Us {% endblock title %} 
+
+{% block intro %} 
+      <h2>Welcome to our "About" page! We're delighted to share our story with you and give you a glimpse into who we are and what we stand for.</h2>
+      <a href="#about" class="btn-get-started scrollto">About Us</a>
+{% endblock intro %}
+
+{% block body %}
+
+<style>
+    .about-img img {
+  width: 100%; 
+  height: 60%; 
+}
+
+</style>
+
+<section id="about" class="about">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="about-img">
+          <img src="../static/images/about.jpg" alt="About Us">
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="section-title">
+          <h2 class="t-4">About Us</h2>
+          <p>Welcome to our website! We're a team of passionate individuals dedicated to providing you with the best products and services.</p>
+        </div>
+        <div class="about-content">
+          <h3>Our Mission</h3>
+          <p>Our mission is to enhance and elevate your skincare and cosmetic experience, empowering you to embrace your natural beauty with confidence and grace. We're committed to delivering high-quality, innovative skincare and cosmetic products that nourish, rejuvenate, and inspire. At SwiftCart, we strive to cultivate a culture of self-care and self-expression, where every individual feels valued, celebrated, and empowered to embrace their unique beauty journey. With a dedication to excellence and a passion for skincare and cosmetics, we're here to help you look and feel your best, inside and out.</p>
+          <h3>Our Vision</h3>
+          <p>We envision a world where skincare and cosmetics are more than just products – they're catalysts for confidence, self-expression, and self-care. Through our efforts, we aim to redefine beauty standards, foster inclusivity, and empower individuals to embrace their authenticity. By offering a diverse range of skincare and cosmetic options that cater to all skin types, tones, and preferences, we're committed to helping everyone feel seen, heard, and celebrated. Together, we aspire to create a beauty community that uplifts and inspires, where everyone feels confident and comfortable in their own skin.</p>
+          <h3>Our Values</h3>
+          <ul>
+            <li><i class="bi bi-check-circle"></i> Integrity</li>
+            <li><i class="bi bi-check-circle"></i> Excellence</li>
+            <li><i class="bi bi-check-circle"></i> Innovation</li>
+            <li><i class="bi bi-check-circle"></i> Customer Satisfaction</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock body %}
+

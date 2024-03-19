@@ -1,0 +1,75 @@
+{% extends 'baseauth.html' %} 
+
+{% load socialaccount %}
+
+
+{% block title %} Login {% endblock title %} 
+
+{%block formbody %}
+<div class="container ">
+  <div class="row justify-content-center">
+    <div class="col-lg-4 col-md-6 col-sm-8 ">
+      <div class="card bg-custom shadow px-5 py-3">
+        
+
+        
+        <h3 class="text-light pt-2">Login</h3>
+
+        
+        <form action="/auth/login/" method="post">
+          {% csrf_token %}
+
+          <div class="mb-2">
+            <label for="email" class="form-label" style="color: rgb(255, 255, 255);">Username</label>
+            <input
+              type="email"
+              class="form-control"
+              name="email"
+              id="email"
+              placeholder="Enter your email"
+              style="background-color: rgba(255, 255, 255, 0.249);"
+            />
+          </div>
+
+          <div class="mb-2">
+            <label for="pass1" class="form-label" style="color: white;">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              name="pass1"
+              id="pass1"
+              placeholder="Enter your password"
+              style="background-color: rgba(255, 255, 255, 0.249);"
+            />
+          </div>
+          
+          <div class="mb-2 text-center">
+            <button class="btn btn-dark col-7" type="submit">SignIn</button>
+
+            <div>
+              <div class=" text-center align-items-center" style="display: flex; flex-direction: row; justify-content: center;">
+                <hr class="col-5" style="border-top: 1px solid white; margin-right: 10px;">
+                <p class="text-center mt-2" style="color: white;">OR</p>
+                <hr class="col-5" style="border-top: 1px solid white; margin-left: 10px;">
+            </div>        <a class="btn btn-sm btn-block btn-dark mx-1 my-1 col-8" href="{% provider_login_url 'google' %}">Login with   <img  src="https://img.icons8.com/color/30/000000/google-logo.png"/></i></a>
+            </div>
+
+          </div>
+
+
+          <!-- <div>
+             Forget Password? <a href="/auth/request-reset-email/"><button type="button" class="btn btn-link " style="color: rgb(255, 189, 189);">Reset</button></a>
+          </div> -->
+          <div class="mb-2 text-center">
+            <div class="text fs-6"style="color: white;">Not Registered ?</div>
+            <a href="/auth/signup/" >
+              <button type="button" class="btn btn-link"class="btn btn-link " style="color: rgb(255, 189, 189);">Signup</button>
+            </a>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock formbody %}

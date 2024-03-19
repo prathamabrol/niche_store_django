@@ -1,0 +1,71 @@
+{% extends 'baseauth.html' %} 
+{% block title %} Signup {% endblock title %} 
+{% load socialaccount %}
+
+{%block formbody %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-4 col-md-6 col-sm-8 pt-2">
+      <div class="card bg-custom shadow px-5 py-3">
+        
+
+        <h3 class="text-light pt-2">Signup</h3>
+        <a class="btn btn-sm btn-block btn-dark mx-2 " href="{% provider_login_url 'google' %}">Signup with   <img  src="https://img.icons8.com/color/30/000000/google-logo.png"/></i></a>
+        <div class="mt-2 text-center align-items-center" style="display: flex; flex-direction: row; justify-content: center;">
+          <hr class="col-5" style="border-top: 1px solid white; margin-right: 10px;">
+          <p class="text-center mt-2" style="color: white;">OR</p>
+          <hr class="col-5" style="border-top: 1px solid white; margin-left: 10px;">
+      </div>
+      
+        <form action="/auth/signup/" method="post">
+          {% csrf_token %}
+
+          <div class="mb-2">
+            <label for="email" class="form-label"style="color: rgb(255, 255, 255);">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              name="email"
+              id="email"
+              placeholder="Enter your email"
+              style="background-color: rgba(255, 255, 255, 0.249);"
+            />
+          </div>
+
+          <div class="mb-2">
+            <label for="pass1" class="form-label"style="color: rgb(255, 255, 255);">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              name="pass1"
+              id="pass1"
+              placeholder="Enter your password"
+              style="background-color: rgba(255, 255, 255, 0.249);"
+            />
+          </div>
+          <div class="mb-2">
+            <label for="pass2" class="form-label"style="color: rgb(255, 255, 255);">Confirm Password</label>
+            <input
+              type="password"
+              class="form-control"
+              name="pass2"
+              id="pass2"
+              placeholder="Re-enter your password"
+              style="background-color: rgba(255, 255, 255, 0.249);"
+            />
+          </div>
+          <div class="mb-2 text-center">
+            <button class="btn btn-dark col-6" type="submit">Signup</button>
+          </div>
+          <div class="mb-2 text-center">
+            <div class="text fs-6"class="btn btn-link " style="color: rgb(255, 255, 255);">Already Registered ?</div>
+            <a href="/auth/login/">
+              <button type="button" class="btn btn-link"class="btn btn-link " style="color: rgb(255, 189, 189);">Log In</button>
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock formbody %}
