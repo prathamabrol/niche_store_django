@@ -31,7 +31,7 @@ Check Out
       <div class="row justify-content-center">
         <div class="col-md-8">
           <div class="my-4">
-            <h2>Step 1 - My Awesome Cart Express Checkout - Review Your Cart Items</h2>
+            <h2>Review Your Cart Items</h2>
             <div class="my-4">
               <ul class="list-group" id="items">
                 <h3 class="text-center">Your Invoice</h3>
@@ -39,7 +39,7 @@ Check Out
   
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mt-3">
-                  <li class="breadcrumb-item active" aria-current="page">Your Cart Total Is <b>₹ <span id="totalprice"></span> <span id="amount"></span></b>. Enter your details below & place your order. Thanks for using Shopping Cart</li>
+                  <li class="breadcrumb-item active" aria-current="page">Your Cart Total Is <b>₹ <span id="totalprice"></span> <span id="amount"></span></b>. Enter your details below & place your order.</li>
                 </ol>
               </nav>
             </div>
@@ -49,14 +49,14 @@ Check Out
   
       <div class="row justify-content-center">
         <div class="col-md-8">
-          <h2>Step 2 - Enter Address & Other Details:</h2>
+          <h2>Enter Your Details:</h2>
           <form method="post" action="/checkout/" class="my-5">
             {% csrf_token %}
             <input type="hidden" name="itemsJson" id="itemsJson">
             <input type="hidden" id="amt" name="amt">
   
             <div class="form-group">
-              <label for="inputname">Name</label>
+              <label for="inputname"> Full Name</label>
               <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
             </div>
             <div class="form-group">
@@ -65,7 +65,7 @@ Check Out
             </div>
   
             <div class="form-group">
-              <label for="inputAddress">Address</label>
+              <label for="inputAddress">Address line 1</label>
               <input type="text" class="form-control" id="address1" name="address1" placeholder="1234 Main St" required>
             </div>
             <div class="form-group">
@@ -135,7 +135,7 @@ if ($.isEmptyObject(cart)) {
 
 
        sum = sum + qty;
-       totalPrice = totalPrice + qty* itemPrice;
+       totalPrice = totalPrice + qty* itemPrice ;
        mystr = `<li class="list-group-item">
                    <div class="row">
                        <div class="col"><b>${name}</b></div>

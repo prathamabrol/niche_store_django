@@ -51,7 +51,7 @@
             "handler": function (response){
                 // Handle payment success
                 // console.log(response);
-                window.location.href = "/payment_status?payment_id=" + response.razorpay_payment_id;
+                window.location.href = "/payment_status?payment_id=" + response.razorpay_payment_id + "&oid=" + "{{ order.oid }}";
                 // Redirect or perform other actions
             },
             "prefill": {

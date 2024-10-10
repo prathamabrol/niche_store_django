@@ -13,6 +13,8 @@
   <meta content="Ecommerce website we deliver products in shorter time" name="description">
   <meta content="Ecommerce" name="amazon,flipkart,selling,products">
 
+  <link rel="icon" type="image/x-icon" href="{% static 'images/falcon-removebg-preview.png' %}">
+
 
 
   <!-- Google Fonts -->
@@ -42,8 +44,10 @@
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <a href="/" class="logo"><img src="{% static 'images/logo2.png' %}" alt="" class="img-fluid" style="max-height: 70px;"></a>
-
+      <a href="/" class="logo">
+        <img src="{% static 'images/LOGOO.png' %}" alt="Logo" class="img-fluid d-block mx-auto" style="max-height: 40px;">
+    </a>
+    
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto active" href="/">Home</a></li>
@@ -95,7 +99,7 @@
 
 <!-- ======= Hero Section ======= -->
 <section id="hero">
-    <div class="hero-container">
+    <div class="hero-container mt-4">
       {% for message in messages %}
 
         <div

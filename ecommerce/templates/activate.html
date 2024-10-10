@@ -1,10 +1,67 @@
-{% autoescape on %}
+{% autoescape on %}  
+<!-- FOR PROTECTING OUR SITE FROM ATTACKS  -->
 
-Hi {{user.username}}
-Please Click this link below to verify your account
-
-http://{{domain}}{% url 'activate' uidb64=uid token=token %}
-
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Verification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333333;
+            text-align: center;
+        }
+        p {
+            color: #555555;
+            line-height: 1.5;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 20px 0;
+            background-color: #007bff;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .footer {
+            text-align: center;
+            font-size: 12px;
+            color: #999999;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Account Verification</h1>
+        <p>Hi {{ user.username }},</p>
+        <p>Thank you for registering with us! To activate your account, please verify your email address by clicking the button below:</p>
+        <a href="http://{{ domain }}{% url 'activate' uidb64=uid token=token %}" class="btn">Verify Your Account</a>
+        <p>If the button above doesn’t work, you can also use the link below:</p>
+        <p><a href="http://{{ domain }}{% url 'activate' uidb64=uid token=token %}">http://{{ domain }}{% url 'activate' uidb64=uid token=token %}</a></p>
+        <div class="footer">
+            <p>If you have any questions, feel free to contact our support team.</p>
+            <p>Thank you!</p>
+        </div>
+    </div>
+</body>
+</html>
 
 {% endautoescape %}

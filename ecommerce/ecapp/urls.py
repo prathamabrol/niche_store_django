@@ -24,4 +24,6 @@ urlpatterns = [
     path('about/',views.about,name="about"),
     path('checkout/',views.checkout,name="checkout"),
     path('payment_status/', views.payment_status, name='payment_status'),
+    path('invoice/<str:order_id>/', views.generate_invoice, name='generate_invoice'),
+
 ]
